@@ -23,7 +23,7 @@ void loop() {
         //do something;
         period = 1000;              //step execution time, 1000 = 1 second
         break;                      
-      case 1:                       //sedond step
+      case 1:                       //seсond step
         //do something;
         period = 1000;              //then similarly
         break;
@@ -59,7 +59,7 @@ switch(mode){
         //do something;
         period = 1000;              //step execution time, 1000 = 1 second
         break;                      
-      case 1:                       //sedond step
+      case 1:                       //seсond step
         //do something;
         period = 1000;              //then similarly
         break;
