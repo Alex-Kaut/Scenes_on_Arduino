@@ -39,5 +39,40 @@ void loop() {
   }
 }
 ```
-Such code can be difficult for beginners to understand, therefore, we will analyze it in more detail
+Such code can be difficult for beginners to understand, therefore, we will analyze it in more detail:
+
+The first part of the code is a timer on millis()
+```C++
+  static uint32_t tmr, period;      //timer variable
+  static byte mode = 0;             //step
+  if (millis() - tmr >= period){    //timer
+    tmr = millis();
+    if (++mode >= 4) mode = 0;
+  }
+```
+In this piece of code, the "mode" variable is incremented by one when time passes equal to the "period" variable. And if "mode == 4", the variable is reset to zero
+
+Second part is ordinary switch
+```C++
+switch(mode){
+      case 0:                       //first step
+        //do something;
+        period = 1000;              //step execution time, 1000 = 1 second
+        break;                      
+      case 1:                       //sedond step
+        //do something;
+        period = 1000;              //then similarly
+        break;
+      case 2:
+        //do something;
+        period = 1000;
+        break;
+      case 3:
+        //do something;
+        period = 1000;
+        break;
+    }
+```
+While "mode == 0", case 0 is executed, when mode becomes equal to 1, case 1 is executed. This is obvious. The important point is "break;", it is necessary. Each case is a step of the scene. Period sets the running time of this step, as soon as it passes, mode will increase by one and the next step will begin. "period = 1000" is one second
+
 
